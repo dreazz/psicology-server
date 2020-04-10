@@ -18,7 +18,7 @@ const Auth = require("./routes/Auth");
 //Routes configuration
 app.use("/auth", Auth);
 
-
+console.log("HIII")
 
 app.listen(3000, function () {
 	console.log("Example app listening on port 3000!");
