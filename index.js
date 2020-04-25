@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('dotenv').config({ path: '.env' });
 
-var whitelist = ['http://localhost:8000', 'http://example2.com']
+var whitelist = ['http://localhost:8000', 'https://evaminerva.com','https://pisco-javi.netlify.app/']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
