@@ -18,10 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 require('dotenv').config({ path: '.env' });
-app.use(cors({
-  credentials: true,
-  origin: "http://localhost:8000"
-}));
+// app.use(cors({
+//   credentials: true,
+//   origin: "http://localhost:8000"
+// }));
 // var whitelist = ['http://localhost:8000/', 'https://evaminerva.com/', 'https://pisco-javi.netlify.app/']
 // var corsOptions = {
 //   origin: function (origin, callback) {
