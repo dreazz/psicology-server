@@ -18,19 +18,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 require('dotenv').config({ path: '.env' });
-
-var whitelist = ['http://localhost:8000/', 'https://evaminerva.com/', 'https://pisco-javi.netlify.app/']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-app.options('*', cors())
-app.use(cors(corsOptions))
+app.use(cors({
+  credentials: true,
+  origin: "http://localhost:8000"
+}));
+// var whitelist = ['http://localhost:8000/', 'https://evaminerva.com/', 'https://pisco-javi.netlify.app/']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
+// app.options('*', cors())
+// app.use(cors(corsOptions))
 //Connect mongoose
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
