@@ -4,21 +4,23 @@ const Form = require('../models/form');
 const mongoose = require('mongoose')
 
 
-router.post("/", function (req, res, next) {
-  const { name, email, userMessage, time, feeling, intensity, experience } = req.body.answers
+router.post("/", (req, res, next) => {
+
+  const { age, body, email, experience, feeling, gender, name, phone, time } = req.body.answers
   Form.create({
     userId: mongoose.Types.ObjectId(),
     userName: name,
     userEmail: email,
-    userMessage: userMessage,
-    answers: {
-      feeling,
-      intensity,
-      experience
-    },
+    userAge: age,
+    userPhone: phone,
+    userGender: gender,
+    userTherapyReason: feeling,
+    userPyshicalHealth: body,
+    userExperience: experience,
     sessionDate: time,
     timestamp: Date.now()
-  }, (err, small) => err ? res.json({ errorDescription: err, errorCode: 500 }) : res.status(200))
+  }).then(data => res.status(200).json({ responseBody: data }))
+    .catch(err => res.status(500).json({ responseBody: err }))
 })
 
 
