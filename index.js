@@ -21,6 +21,7 @@ var corsOptions = {
     }
   }
 }
+app.options('*', cors())
 app.use(cors(corsOptions))
 //Connect mongoose
 mongoose
