@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Form = require('../models/form');
 const mongoose = require('mongoose')
+const main = require('../helper/email')
 
 
 router.post("/", (req, res, next) => {
@@ -19,7 +20,10 @@ router.post("/", (req, res, next) => {
     userExperience: experience,
     sessionDate: time,
     timestamp: Date.now()
-  }).then(data => res.status(200).json({ responseBody: data }))
+  }).then(data => {
+    main()
+    res.status(200).json({ responseBody: data })
+  })
     .catch(err => res.status(500).json({ responseBody: err }))
 })
 

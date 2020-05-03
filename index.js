@@ -5,7 +5,7 @@ const app = express();
 const cors = require('cors')
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:8000'
+  origin: process.env.CORS
 }));
 
 app.use(bodyParser.json());
