@@ -16,6 +16,6 @@ const formSchema = new Schema({
   timestamp: { type: Date, required: true },
 });
 
-const Form = mongoose.model('Form', formSchema);
+const UserForm = mongoose.model('UserForm', formSchema);
 
-module.exports = Form;
+module.exports = UserForm;
