@@ -5,21 +5,7 @@ const app = express();
 const cors = require('cors')
 
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin",process.env.CORS ); // update to match the domain you will make the request from
- // Request methods you wish to allow
- res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
- // Request headers you wish to allow
- res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
- // Set to true if you need the website to include cookies in the requests sent
- // to the API (e.g. in case you use sessions)
- res.setHeader('Access-Control-Allow-Credentials', true);
-
- // Pass to next layer of middleware
- next();
-});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -35,6 +21,22 @@ mongoose
     console.error('Error connecting to mongo', err);
   });
 
+  console.log(process.env.CORS)
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin","https://pisco-javi.netlify.app" ); // update to match the domain you will make the request from
+   // Request methods you wish to allow
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  
+   // Request headers you wish to allow
+   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  
+   // Set to true if you need the website to include cookies in the requests sent
+   // to the API (e.g. in case you use sessions)
+   res.setHeader('Access-Control-Allow-Credentials', true);
+  
+   // Pass to next layer of middleware
+   next();
+  });
 //ROUTES url require
 const Form = require("./routes/Form");
 
