@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require("body-parser")
 const app = express();
 const cors = require('cors')
+
+app.options('*', cors())
 app.use(cors({
   origin: process.env.CORS,
   credentials: true
 }));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
