@@ -12,7 +12,6 @@ const formSchema = new Schema({
   userTherapyReason: { type: String, required: true },
   userPyshicalHealth: { type: String, required: true },
   userExperience: { type: String, required: true },
-  sessionDate: { type: String, required: true },
   timestamp: { type: Date, required: true },
 });
 

@@ -8,7 +8,7 @@ const main = require('../helper/email')
 
 router.post("/professional", (req, res, next) => {
 
-  const { name, email, name, phone } = req.body.answers
+  const { name, email, phone } = req.body.answers
   ProfessionalForm.create({
     userId: mongoose.Types.ObjectId(),
     userName: name,
@@ -24,7 +24,7 @@ router.post("/professional", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
 
-  const { age, body, email, experience, feeling, gender, name, phone, time } = req.body.answers
+  const { age, body, email, experience, feeling, gender, name, phone } = req.body.answers
   UserForm.create({
     userId: mongoose.Types.ObjectId(),
     userName: name,
@@ -35,7 +35,6 @@ router.post("/", (req, res, next) => {
     userTherapyReason: feeling,
     userPyshicalHealth: body,
     userExperience: experience,
-    sessionDate: time,
     timestamp: Date.now()
   }).then(data => {
     main()

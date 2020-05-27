@@ -10,6 +10,6 @@ const formSchema = new Schema({
     timestamp: { type: Date, required: true },
 });
 
-const UserForm = mongoose.model('UserForm', formSchema);
+const ProfessionalForm = mongoose.model('ProfessionalForm', formSchema);
 
-module.exports = UserForm;
+module.exports = ProfessionalForm;
