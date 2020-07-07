@@ -23,7 +23,7 @@ mongoose
 
   console.log(process.env.CORS)
   app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin","https://pisco-javi.netlify.app" ); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin","*" ); // update to match the domain you will make the request from
    // Request methods you wish to allow
    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   
